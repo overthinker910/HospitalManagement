@@ -76,6 +76,45 @@ class medicine
     }
 }
 
+class hospital_room
+{
+    void  icu_room()
+    {
+        Scanner input = new Scanner(System.in);
+        int icu_room=5;
+        System.out.println("the number of icu rooms occupied are :"+icu_room);
+        System.out.println("the number of icu rooms available are:"+(40-icu_room));
+        System.out.println("1:mark room as occupied ,2:room emptied 3:exit");
+        int room_ch=input.nextInt();
+        switch(room_ch)
+        {
+            case 1:icu_room++;break;
+            case 2:icu_room--;break;
+            case 3:break;
+            default:System.out.println("wrong choice");
+        }
+        System.out.println("the number of gen rooms occupied are :"+icu_room);
+        System.out.println("the number of gen rooms available are:"+(40-icu_room));
+    }
+    void gen_room()
+    {
+        Scanner input = new Scanner(System.in);
+        int gen_room=21;
+        System.out.println("the number of gen rooms occupied are :"+gen_room);
+        System.out.println("the number of gen rooms available are:"+(40-gen_room));
+        System.out.println("1:mark room as occupied ,2:room emptied 3:exit");
+        int room_ch=input.nextInt();
+        switch(room_ch)
+        {
+            case 1:gen_room++;break;
+            case 2:gen_room--;break;
+            case 3:break;
+            default:System.out.println("wrong choice");
+        }
+        System.out.println("the number of gen rooms occupied are :"+gen_room);
+        System.out.println("the number of gen rooms available are:"+(40-gen_room));
+    }
+}
  
 public class hospitalmanagement
 {
@@ -106,6 +145,7 @@ public class hospitalmanagement
         doctor[] d = new doctor[25];
         patient[] p = new patient[100];
         medicine[] m = new medicine[100];
+        hospital_room hr=new hospital_room();
         
         int i;
         for (i = 0; i < 25; i++)
@@ -196,7 +236,7 @@ public class hospitalmanagement
         {
             System.out.println("\n                                    MAIN MENU");
             System.out.println("-----------------------------------------------------------------------------------");
-            System.out.println("1.Doctos  2. Patients  3.Medicines ");
+            System.out.println("1.Doctor  2. Patients  3.Medicines 4:room");
             System.out.println("-----------------------------------------------------------------------------------");
             choice = input.nextInt();
             switch (choice)
@@ -301,7 +341,15 @@ public class hospitalmanagement
                         }
                         break;
                     }
-                
+                case 4:System.out.println("1:icu room 2:general room");
+                          c1 = input.nextInt();
+                            switch (c1)
+                            {
+                                case 1:hr.icu_room();break;
+                                case 2:hr.gen_room();break;
+                            }
+                        
+                       break;
                 default:
                     {
                         System.out.println(" You Have Enter Wrong Choice!!!");
