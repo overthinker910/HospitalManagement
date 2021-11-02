@@ -78,13 +78,18 @@ class medicine
 
 class hospital_room
 {
-    void  icu_room()
+    int icu_room;
+    int gen_room;
+    hospital_room(){
+       this.icu_room=5;
+       this.gen_room=21;
+    }
+    public void  icu_rooms()
     {
         Scanner input = new Scanner(System.in);
-        int icu_room=5;
         System.out.println("the number of icu rooms occupied are :"+icu_room);
         System.out.println("the number of icu rooms available are:"+(40-icu_room));
-        System.out.println("1:mark room as occupied ,2:room emptied 3:exit");
+        System.out.println("1: Mark room as occupied 2: Room emptied 3: Exit");
         int room_ch=input.nextInt();
         switch(room_ch)
         {
@@ -93,16 +98,16 @@ class hospital_room
             case 3:break;
             default:System.out.println("wrong choice");
         }
-        System.out.println("the number of gen rooms occupied are :"+icu_room);
-        System.out.println("the number of gen rooms available are:"+(40-icu_room));
+        System.out.println("the number of icu rooms occupied are :"+icu_room);
+        System.out.println("the number of icu rooms available are:"+(40-icu_room));
     }
-    void gen_room()
+    void gen_rooms()
     {
         Scanner input = new Scanner(System.in);
-        int gen_room=21;
+        
         System.out.println("the number of gen rooms occupied are :"+gen_room);
         System.out.println("the number of gen rooms available are:"+(40-gen_room));
-        System.out.println("1:mark room as occupied ,2:room emptied 3:exit");
+        System.out.println("1: Mark room as occupied 2: Room emptied 3: Exit");
         int room_ch=input.nextInt();
         switch(room_ch)
         {
@@ -116,10 +121,11 @@ class hospital_room
     }
 }
  
-public class hospitalmanagement
+public class hospitalmanagement extends hospital_room
 {
     public static void main(String args[])
     {
+      
         String months[] = {
             "Jan",
             "Feb",
@@ -236,7 +242,7 @@ public class hospitalmanagement
         {
             System.out.println("\n                                    MAIN MENU");
             System.out.println("-----------------------------------------------------------------------------------");
-            System.out.println("1.Doctor  2. Patients  3.Medicines 4:room");
+            System.out.println("1: Doctor  2: Patients  3: Medicines 4: Rooms");
             System.out.println("-----------------------------------------------------------------------------------");
             choice = input.nextInt();
             switch (choice)
@@ -249,7 +255,7 @@ public class hospitalmanagement
                         s1 = 1;
                         while (s1 == 1)
                         {
-                            System.out.println("1.Add New Entry\n2.Existing Doctors List");
+                            System.out.println("1: Add New Entry\n2: Existing Doctors List\n3: View medicines available ");
                             c1 = input.nextInt();
                             switch (c1)
                             {
@@ -269,6 +275,15 @@ public class hospitalmanagement
                                         }
                                         break;
                                     }
+                                case 3:{
+                                    System.out.println("--------------------------------------------------------------------------------");
+                                    System.out.println("Name \t Company \t Expiry Date \t Cost");
+                                    System.out.println("--------------------------------------------------------------------------------");
+                                    for (j = 0; j < count3; j++) {
+                                        m[j].find_medi();
+                                    }
+                                    break;
+                                }
                             }
                             System.out.println("\nReturn to Back Press 1 and for Main Menu Press 0");
                             s1 = input.nextInt();
@@ -283,7 +298,7 @@ public class hospitalmanagement
                         s2 = 1;
                         while (s2 == 1)
                         {
-                            System.out.println("1.Add New Entry\n2.Existing Patients List");
+                            System.out.println("1: Add New Entry\n2: Existing Patients List\n3: Room Status\n4: Existing doctors list");
                             c1 = input.nextInt();
                             switch (c1)
                             {
@@ -302,6 +317,31 @@ public class hospitalmanagement
                                         }
                                         break;
                                     }
+                                case 3:{
+                                    System.out.println("View the status of: ");
+                                    System.out.println("1: General category rooms 2: ICU rooms");
+                                    int ch=input.nextInt();
+                                    switch(ch){
+                                    case 1:{
+                                        System.out.println("the number of gen rooms occupied are :"+hr.gen_room);
+                                        System.out.println("the number of gen rooms available are:"+(40-hr.gen_room));
+                                    }
+                                    case 2:{
+                                    System.out.println("the number of ICU rooms occupied are :"+hr.icu_room);
+                                    System.out.println("the number of ICU rooms available are:"+(40-hr.icu_room));
+                                    }
+                                    }
+                                }
+                                case 4:{
+                                    System.out.println("--------------------------------------------------------------------------------");
+                                        System.out.println("id \t Name\t Specilist \t Timing \t Qualification \t Room No.");
+                                        System.out.println("--------------------------------------------------------------------------------");
+                                        for (j = 0; j < count1; j++)
+                                        {
+                                            d[j].doctor_info();
+                                        }
+                                        break;
+                                }
                             }
                             System.out.println("\nReturn to Back Press 1 and for Main Menu Press 0");
                             s2 = input.nextInt();
@@ -341,18 +381,18 @@ public class hospitalmanagement
                         }
                         break;
                     }
-                case 4:System.out.println("1:icu room 2:general room");
+                case 4:System.out.println("1: ICU room 2: General category room");
                           c1 = input.nextInt();
                             switch (c1)
                             {
-                                case 1:hr.icu_room();break;
-                                case 2:hr.gen_room();break;
+                                case 1:hr.icu_rooms();break;
+                                case 2:hr.gen_rooms();break;
                             }
                         
                        break;
                 default:
                     {
-                        System.out.println(" You Have Enter Wrong Choice!!!");
+                        System.out.println(" You Have Entered Wrong Choice!!!");
                     }
             }
             System.out.println("\nReturn to MAIN MENU Press 1");
