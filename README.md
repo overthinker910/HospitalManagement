@@ -20,4 +20,5 @@
 - Number of rooms occupied 
 - Number of ICU rooms available ,occupied .
 	
+### Class Diagram 
 ![image](https://user-images.githubusercontent.com/79561540/139829563-feb45b2a-21ed-4882-83ce-616b0a6edaf4.png)
