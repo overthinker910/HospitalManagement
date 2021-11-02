@@ -22,7 +22,7 @@ doctor timings.
 **Hospital Rooms**: 
 - Number of general rooms available 
 - Number of rooms occupied 
-- Number of ICU rooms available ,occupied 
+- Number of ICU rooms available occupied 
 	
 ### Class Diagram 
 ![image](https://user-images.githubusercontent.com/79561540/139914942-f63576ed-10e4-4b43-a333-be00fcf3e0e7.png)
