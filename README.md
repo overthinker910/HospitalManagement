@@ -2,17 +2,17 @@
 
 **PROBLEM STATEMENT**
 - There is a receptionist in the hospital. The receptionist can perform various functions related to the doctor ,patients ,medicines and hospital facilities to ensure the  smooth working of the hospital . 
-- **For the doctor**, he can either 
+**For the doctor** he can either :
 - view the existing list of doctors working at the hospital 
 - add a new one by entering details like name,id,qualification,specialization ,room no ,fees, doctor timings .
-- **For the patient** ,
+**For the patient** ,
 - view the existing list of patients 
 - add a new one by entering details like name, id, disease, gender ,age ,admit status .
-- **For the medicine** ,
+- **For the medicine** :
 - view the existing list of medicines 
 - add a new one by entering details like name, quantity ,expiry date.
 - delete a medicine after it is over 
-- **Facility** 
+**Facility** :
 - Shows a list of all the hospital facilities 
 - Search for doctors available relating to the patients disease area
 - Hospital Rooms 
