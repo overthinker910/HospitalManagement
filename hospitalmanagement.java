@@ -8,7 +8,7 @@ class doctor
 {
     String did, dname, specilist, appoint, doc_qual;
     int droom;
-    void new_doctor()
+    public void new_doctor()
     {
         Scanner input = new Scanner(System.in);
         System.out.print("id:-");
@@ -19,7 +19,7 @@ class doctor
         System.out.println("Enter choice");
         System.out.println("1:Cardiologist");
         System.out.println("2:Audiologist");
-        System.out.println("3: Dentist");
+        System.out.println("3:Dentist");
         System.out.println("4:ENT");
         System.out.println("5:Gynaecologist");
         System.out.println("6:Paediatrician");
@@ -46,16 +46,18 @@ class doctor
         System.out.println("room no.:-");
         droom = input.nextInt();
     }
-    void doctor_info()
+    public void doctor_info()
     {
         System.out.println(did + "\t" + dname + "  \t" + specilist + "     \t" + appoint + "    \t" + doc_qual + "       \t" + droom);
     }
 }
-class search_doctor
+class search_doctor extends doctor
 {
-    void search()
+    public void search()
     {
-        doctor d=new doctor();
+        Scanner input= new Scanner(System.in);
+        doctor[] d = new doctor[25];
+        hospitalmanagement hm= new hospitalmanagement();
         System.out.println("enter the specialist type you want to search for ");
         System.out.println("specilization:-");
         System.out.println("1:Cardiologist");
@@ -66,10 +68,14 @@ class search_doctor
         System.out.println("6:Paediatrician");
         System.out.println("7:Psychiatrist");
         System.out.println("8:Oncologist");
-        int ch1=sc.nextInt();
-        
+        String ch1=input.nextLine();
+        for (int j = 0; j < hm.count1; j++)
+        {
+        if(ch1.equalsIgnoreCase(d[j].specilist))
+            d[j].doctor_info();
+        }
+            }
     }
-}
 class patient
 {
     String pid, pname, disease, sex, admit_status;
@@ -165,7 +171,10 @@ class hospital_room
 }
  
 public class hospitalmanagement extends hospital_room
-{
+{int count1, count2, count3, count4, count5, count6;
+    hospitalmanagement(){
+        this.count1=4;
+    }
     public static void main(String args[])
     {
       
@@ -195,7 +204,7 @@ public class hospitalmanagement extends hospital_room
         patient[] p = new patient[100];
         medicine[] m = new medicine[100];
         hospital_room hr=new hospital_room();
-        
+        search_doctor sd=new search_doctor();
         int i;
         for (i = 0; i < 25; i++)
             d[i] = new doctor();
@@ -285,7 +294,7 @@ public class hospitalmanagement extends hospital_room
         {
             System.out.println("\n                                    MAIN MENU");
             System.out.println("-----------------------------------------------------------------------------------");
-            System.out.println("1: Doctor  2: Patients  3: Medicines 4: Rooms");
+            System.out.println("1: Doctor  2: Patients  3: Medicines 4: Rooms 5: Search doctors");
             System.out.println("-----------------------------------------------------------------------------------");
             choice = input.nextInt();
             switch (choice)
@@ -304,7 +313,8 @@ public class hospitalmanagement extends hospital_room
                             {
                                 case 1:
                                     {
-                                        d[count1].new_doctor();count1++;
+                                        d[count1].new_doctor();
+                                        ++count1;
                                         break;
                                     }
                                 case 2:
@@ -424,7 +434,8 @@ public class hospitalmanagement extends hospital_room
                         }
                         break;
                     }
-                case 4:System.out.println("1: ICU room 2: General category room");
+                case 4:
+                {System.out.println("1: ICU room 2: General category room");
                           c1 = input.nextInt();
                             switch (c1)
                             {
@@ -433,6 +444,12 @@ public class hospitalmanagement extends hospital_room
                             }
                         
                        break;
+                        }
+                case 5:{
+                    sd.search();
+                    break;
+                }
+
                 default:
                     {
                         System.out.println(" You Have Entered Wrong Choice!!!");
