@@ -1,4 +1,3 @@
-
    
 import java.io.*;
 import java.util.*;
@@ -6,7 +5,7 @@ import java.util.Calendar;
 
 class doctor
 {
-    String did, dname, specilist, appoint, doc_qual;
+    String did, dname, specialist, appoint, doc_qual;
     int droom;
     public void new_doctor()
     {
@@ -28,19 +27,35 @@ class doctor
         int ch= input.nextInt();
         switch(ch)
         {
-            case 1:specilist="Cardiologist";break;
-            case 2:specilist="Audiologist";break;
-            case 3:specilist="Dentist";break;
-            case 4:specilist="ENT";break;
-            case 5:specilist="Gynaecologist";break;
-            case 6:specilist="Paediatrician";break;
-            case 7:specilist="Psychiatrist";break;
-            case 8:specilist="Oncologist";break;
+            case 1:specialist="Cardiologist";break;
+            case 2:specialist="Audiologist";break;
+            case 3:specialist="Dentist";break;
+            case 4:specialist="ENT";break;
+            case 5:specialist="Gynaecologist";break;
+            case 6:specialist="Paediatrician";break;
+            case 7:specialist="Psychiatrist";break;
+            case 8:specialist="Oncologist";break;
             default:System.out.println("Wrong choice");
         }
 
         System.out.println("work time:-");
-        appoint = input.nextLine();
+        System.out.println("Enter choice");
+        System.out.println("1:1-2pm");
+        System.out.println("2:2-3pm");
+        System.out.println("3:3-4pm");
+        System.out.println("4:4-5pm");
+        System.out.println("5:5-6pm");
+        System.out.println("6:6-7pm");
+        int ch1 = input.nextInt();
+        switch(ch1)
+        {
+            case 1:appoint="1-2pm";break;
+            case 2:appoint="2-3pm";break;
+            case 3:appoint="3-4pm";break;
+            case 4:appoint="4-5pm";break;
+            case 5:appoint="5-6pm";break;
+            default:System.out.println("Wrong choice");
+        }
         System.out.println("qualification:-");
         doc_qual = input.nextLine();
         System.out.println("room no.:-");
@@ -48,16 +63,16 @@ class doctor
     }
     public void doctor_info()
     {
-        System.out.println(did + "\t" + dname + "  \t" + specilist + "     \t" + appoint + "    \t" + doc_qual + "       \t" + droom);
+        System.out.println(did + "\t" + dname + "  \t" + specialist + "     \t" + appoint + "    \t" + doc_qual + "       \t" + droom);
     }
 }
-class search_doctor extends doctor
+class search_doctor 
 {
     public void search()
     {
         Scanner input= new Scanner(System.in);
-        doctor[] d = new doctor[25];
-        hospitalmanagement hm= new hospitalmanagement();
+        doctor d=new doctor(); 
+        hospitalmanagement hm=new hospitalmanagement();
         System.out.println("enter the specialist type you want to search for ");
         System.out.println("specilization:-");
         System.out.println("1:Cardiologist");
@@ -69,11 +84,11 @@ class search_doctor extends doctor
         System.out.println("7:Psychiatrist");
         System.out.println("8:Oncologist");
         String ch1=input.nextLine();
-        for (int j = 0; j < hm.count1; j++)
-        {
-        if(ch1.equalsIgnoreCase(d[j].specilist))
-            d[j].doctor_info();
-        }
+        // for (int j = 0; j < hm.count1; j++)
+        // {
+        // if(ch1.equals(d[j].specialist))
+        //     d[j].doctor_info();
+        // }
             }
     }
 class patient
@@ -170,11 +185,9 @@ class hospital_room
     }
 }
  
-public class hospitalmanagement extends hospital_room
-{int count1, count2, count3, count4, count5, count6;
-    hospitalmanagement(){
-        this.count1=4;
-    }
+public class hospitalmanagement 
+{
+    int count1, count2, count3, count4, count5, count6;
     public static void main(String args[])
     {
       
@@ -200,7 +213,7 @@ public class hospitalmanagement extends hospital_room
         System.out.println("--------------------------------------------------------------------------------");
         System.out.print("Date: " + months[calendar.get(Calendar.MONTH)] + " " + calendar.get(Calendar.DATE) + " " + calendar.get(Calendar.YEAR));
         System.out.println("\t\t\t\t\t\tTime: " + calendar.get(Calendar.HOUR) + ":" + calendar.get(Calendar.MINUTE) + ":" + calendar.get(Calendar.SECOND));
-        doctor[] d = new doctor[25];
+         doctor[] d = new doctor[25];
         patient[] p = new patient[100];
         medicine[] m = new medicine[100];
         hospital_room hr=new hospital_room();
@@ -217,25 +230,25 @@ public class hospitalmanagement extends hospital_room
 
         d[0].did = "21";
         d[0].dname = "Dr.Ghanendra";
-        d[0].specilist = "ENT";
+        d[0].specialist = "ENT";
         d[0].appoint = "5-11AM";
         d[0].doc_qual = "MBBS,MD";
         d[0].droom = 17;
         d[1].did = "32";
         d[1].dname = "Dr.Vikram";
-        d[1].specilist = "Physician";
+        d[1].specialist = "Physician";
         d[1].appoint = "10-3AM";
         d[1].doc_qual = "MBBS,MD";
         d[1].droom = 45;
         d[2].did = "17";
         d[2].dname = "Dr.Rekha";
-        d[2].specilist = "Surgeon";
+        d[2].specialist = "Surgeon";
         d[2].appoint = "8-2AM";
         d[2].doc_qual = "BDM";
         d[2].droom = 8;
         d[3].did = "33";
         d[3].dname = "Dr.Pramod";
-        d[3].specilist = "Artho";
+        d[3].specialist = "Artho";
         d[3].appoint = "10-4PM";
         d[3].doc_qual = "MBBS,MS";
         d[3].droom = 40;
@@ -320,7 +333,7 @@ public class hospitalmanagement extends hospital_room
                                 case 2:
                                     {
                                         System.out.println("--------------------------------------------------------------------------------");
-                                        System.out.println("id \t Name\t Specilist \t Timing \t Qualification \t Room No.");
+                                        System.out.println("id \t Name\t specialist \t Timing \t Qualification \t Room No.");
                                         System.out.println("--------------------------------------------------------------------------------");
                                         for (j = 0; j < count1; j++)
                                         {
@@ -387,7 +400,7 @@ public class hospitalmanagement extends hospital_room
                                 }
                                 case 4:{
                                     System.out.println("--------------------------------------------------------------------------------");
-                                        System.out.println("id \t Name\t Specilist \t Timing \t Qualification \t Room No.");
+                                        System.out.println("id \t Name\t specialist \t Timing \t Qualification \t Room No.");
                                         System.out.println("--------------------------------------------------------------------------------");
                                         for (j = 0; j < count1; j++)
                                         {
