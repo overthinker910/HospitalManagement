@@ -1,3 +1,5 @@
+
+   
 import java.io.*;
 import java.util.*;
 import java.util.Calendar;
@@ -13,18 +15,59 @@ class doctor
         did = input.nextLine();
         System.out.print("name:-");
         dname = input.nextLine();
-        System.out.print("specilization:-");
-        specilist = input.nextLine();
-        System.out.print("work time:-");
+        System.out.println("specilization:-");
+        System.out.println("Enter choice");
+        System.out.println("1:Cardiologist");
+        System.out.println("2:Audiologist");
+        System.out.println("3: Dentist");
+        System.out.println("4:ENT");
+        System.out.println("5:Gynaecologist");
+        System.out.println("6:Paediatrician");
+        System.out.println("7:Psychiatrist");
+        System.out.println("8:Oncologist");
+        int ch= input.nextInt();
+        switch(ch)
+        {
+            case 1:specilist="Cardiologist";break;
+            case 2:specilist="Audiologist";break;
+            case 3:specilist="Dentist";break;
+            case 4:specilist="ENT";break;
+            case 5:specilist="Gynaecologist";break;
+            case 6:specilist="Paediatrician";break;
+            case 7:specilist="Psychiatrist";break;
+            case 8:specilist="Oncologist";break;
+            default:System.out.println("Wrong choice");
+        }
+
+        System.out.println("work time:-");
         appoint = input.nextLine();
-        System.out.print("qualification:-");
+        System.out.println("qualification:-");
         doc_qual = input.nextLine();
-        System.out.print("room no.:-");
+        System.out.println("room no.:-");
         droom = input.nextInt();
     }
     void doctor_info()
     {
         System.out.println(did + "\t" + dname + "  \t" + specilist + "     \t" + appoint + "    \t" + doc_qual + "       \t" + droom);
+    }
+}
+class search_doctor
+{
+    void search()
+    {
+        doctor d=new doctor();
+        System.out.println("enter the specialist type you want to search for ");
+        System.out.println("specilization:-");
+        System.out.println("1:Cardiologist");
+        System.out.println("2:Audiologist");
+        System.out.println("3: Dentist");
+        System.out.println("4:ENT");
+        System.out.println("5:Gynaecologist");
+        System.out.println("6:Paediatrician");
+        System.out.println("7:Psychiatrist");
+        System.out.println("8:Oncologist");
+        int ch1=sc.nextInt();
+        
     }
 }
 class patient
