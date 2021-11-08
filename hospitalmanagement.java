@@ -83,13 +83,13 @@ class search_doctor
         System.out.println("6:Paediatrician");
         System.out.println("7:Psychiatrist");
         System.out.println("8:Oncologist");
-        String ch1=input.nextLine();
+        // String ch1=input.nextLine();
         // for (int j = 0; j < hm.count1; j++)
         // {
         // if(ch1.equals(d[j].specialist))
         //     d[j].doctor_info();
         // }
-            }
+           }
     }
 class patient
 {
@@ -142,12 +142,12 @@ class medicine
 
 class hospital_room
 {
-    int icu_room;
-    int gen_room;
-    hospital_room(){
-       this.icu_room=5;
-       this.gen_room=21;
-    }
+    int icu_room=5;
+    int gen_room=21;
+    // hospital_room(){
+    //    this.icu_room=5;
+    //    this.gen_room=21;
+    // }
     public void  icu_rooms()
     {
         Scanner input = new Scanner(System.in);
@@ -376,7 +376,7 @@ public class hospitalmanagement
                                 case 2:
                                     {
                                         System.out.println("--------------------------------------------------------------------------------");
-                                        System.out.println("id \t Name \t Disease \t Gender \t Admit Status \t Age");
+                                        System.out.println("id \t\t\t Name \t\t\t Disease \t\t\t Gender \t\t\t Admit Status \t\t\t\t\t Age");
                                         System.out.println("--------------------------------------------------------------------------------");
                                         for (j = 0; j < count2; j++) {
                                             p[j].patient_info();
@@ -391,16 +391,20 @@ public class hospitalmanagement
                                     case 1:{
                                         System.out.println("the number of gen rooms occupied are :"+hr.gen_room);
                                         System.out.println("the number of gen rooms available are:"+(40-hr.gen_room));
+                                        break;
                                     }
                                     case 2:{
                                     System.out.println("the number of ICU rooms occupied are :"+hr.icu_room);
-                                    System.out.println("the number of ICU rooms available are:"+(40-hr.icu_room));
+                                    System.out.println("the number of ICU rooms available are:"+(40-hr.icu_room));break;
+
                                     }
+                                    
                                     }
+                                    break;
                                 }
                                 case 4:{
                                     System.out.println("--------------------------------------------------------------------------------");
-                                        System.out.println("id \t Name\t specialist \t Timing \t Qualification \t Room No.");
+                                        System.out.println("id \t\t\t\t\t Name\t\t\t\t\t specialist \t\t\t\t\t Timing \t\t\t\t\t Qualification \t\t\t\t\t Room No.");
                                         System.out.println("--------------------------------------------------------------------------------");
                                         for (j = 0; j < count1; j++)
                                         {
