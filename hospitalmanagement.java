@@ -3,6 +3,7 @@ import java.io.*;
 import java.util.*;
 import java.util.Calendar;
 
+
 class doctor
 {
     String did, dname, specialist, appoint, doc_qual;
@@ -10,10 +11,13 @@ class doctor
     public void new_doctor()
     {
         Scanner input = new Scanner(System.in);
+        
         System.out.print("id:-");
         did = input.nextLine();
         System.out.print("name:-");
         dname = input.nextLine();
+        System.out.print("qualification:-");
+        doc_qual = input.nextLine();
         System.out.println("specilization:-");
         System.out.println("Enter choice");
         System.out.println("1:Cardiologist");
@@ -56,10 +60,10 @@ class doctor
             case 5:appoint="5-6pm";break;
             default:System.out.println("Wrong choice");
         }
-        System.out.println("qualification:-");
-        doc_qual = input.nextLine();
+        
         System.out.println("room no.:-");
         droom = input.nextInt();
+        
     }
     public void doctor_info()
     {
@@ -83,14 +87,14 @@ class search_doctor
         System.out.println("6:Paediatrician");
         System.out.println("7:Psychiatrist");
         System.out.println("8:Oncologist");
-        // String ch1=input.nextLine();
+        String ch1=input.nextLine();
         // for (int j = 0; j < hm.count1; j++)
         // {
         // if(ch1.equals(d[j].specialist))
         //     d[j].doctor_info();
         // }
-           }
-    }
+        
+   }   }
 class patient
 {
     String pid, pname, disease, sex, admit_status;
@@ -120,23 +124,27 @@ class medicine
 {
     String med_name, med_comp, exp_date;
     int med_cost, count;
-    void new_medi()
+    void new_medicine()
     {
         Scanner input = new Scanner(System.in);
         System.out.print("name:-");
         med_name = input.nextLine();
-        System.out.print("comp:-");
+        System.out.print("company:-");
         med_comp = input.nextLine();
-        System.out.print("exp_date:-");
+        System.out.print("expiry date in dd/mm/yyyy format :-");
         exp_date = input.nextLine();
-        System.out.print("cost:-");
+        System.out.println("cost:-");
         med_cost = input.nextInt();
-        System.out.print("no of unit:-");
+        System.out.println("no of unit:-");
         count = input.nextInt();
     }
-    void find_medi()
+    void print_medi()
     {
         System.out.println(med_name + "  \t" + med_comp + "    \t" + exp_date + "     \t" + med_cost);
+    }
+    void delete_medicine()
+    {
+        
     }
 }
 
@@ -346,7 +354,7 @@ public class hospitalmanagement
                                     System.out.println("Name \t Company \t Expiry Date \t Cost");
                                     System.out.println("--------------------------------------------------------------------------------");
                                     for (j = 0; j < count3; j++) {
-                                        m[j].find_medi();
+                                        m[j].print_medi();
                                     }
                                     break;
                                 }
@@ -432,7 +440,7 @@ public class hospitalmanagement
                             {
                                 case 1:
                                     {
-                                        m[count3].new_medi();count3++;
+                                        m[count3].new_medicine();count3++;
                                         break;
                                     }
                                 case 2:
@@ -441,7 +449,7 @@ public class hospitalmanagement
                                         System.out.println("Name \t Company \t Expiry Date \t Cost");
                                         System.out.println("--------------------------------------------------------------------------------");
                                         for (j = 0; j < count3; j++) {
-                                            m[j].find_medi();
+                                            m[j].print_medi();
                                         }
                                         break;
                                     }
