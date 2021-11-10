@@ -71,10 +71,11 @@ class doctor
 }
 class search_doctor 
 {
-    public void search()
+    doctor d=new doctor(); 
+    public void search(doctor d[] )
     {
         Scanner input= new Scanner(System.in);
-        doctor d=new doctor(); 
+       
         hospitalmanagement hm=new hospitalmanagement();
         System.out.println("enter the specialist type you want to search for ");
         System.out.println("specilization:-");
@@ -86,12 +87,38 @@ class search_doctor
         System.out.println("6:Paediatrician");
         System.out.println("7:Psychiatrist");
         System.out.println("8:Oncologist");
-        String ch1=input.nextLine();
-        // for (int j = 0; j < hm.count1; j++)
-        // {
-        // if(ch1.equals(d[j].specialist))
-        //     d[j].doctor_info();
-        // }
+        int ch1=input.nextInt();
+        String str="";
+        switch(ch1)
+        {
+            case 1: 
+            str="Cardiologist";break;
+            case 2:
+             str="Audiologist";break;
+            case 3: 
+            str="Dentist";break;
+            case 4: 
+            str="ENT";break;
+            case 5: 
+            str="Gynaecologist";break;
+            case 6: 
+            str="Paediatrician";break;
+            case 7: 
+            str="Psychiatrist";break;
+            case 8: 
+            str="Oncologist";break;
+            default:
+            System.out.println("wrong choice");
+
+        }
+        
+        for (int j = 0; j < 25; j++)
+        {
+        if(str.equals(d[j].specialist))
+        {
+            System.out.println("id \t Name\t specialist \t Timing \t Qualification \t Room No.");
+            d[j].doctor_info();
+        }}
         
    }   }
 class patient
@@ -491,7 +518,7 @@ public class hospitalmanagement
                        break;
                         }
                 case 5:{
-                    sd.search();
+                    sd.search(d);
                     break;
                 }
 
