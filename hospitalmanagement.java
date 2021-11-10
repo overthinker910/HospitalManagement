@@ -1,4 +1,3 @@
-   
 import java.io.*;
 import java.util.*;
 import java.util.Calendar;
@@ -120,10 +119,13 @@ class patient
         System.out.println(pid + "\t" + pname + " \t" + disease + "     \t" + sex + "      \t" + admit_status + "\t" + age);
     }
 }
-class medicine
+class medicine extends hospitalmanagement
 {
+   public medicine(){
+        medicine[] m = new medicine[100];
+    }
     String med_name, med_comp, exp_date;
-    int med_cost, count;
+    int med_cost, count,med_id;
     void new_medicine()
     {
         Scanner input = new Scanner(System.in);
@@ -133,18 +135,22 @@ class medicine
         med_comp = input.nextLine();
         System.out.print("expiry date in dd/mm/yyyy format :-");
         exp_date = input.nextLine();
-        System.out.println("cost:-");
+        System.out.print("Enter id: ");
+        med_id=input.nextInt();
+        System.out.print("cost:-");
         med_cost = input.nextInt();
         System.out.println("no of unit:-");
         count = input.nextInt();
     }
     void print_medi()
     {
-        System.out.println(med_name + "  \t" + med_comp + "    \t" + exp_date + "     \t" + med_cost);
+        System.out.println(med_id+" \t"+ med_name + "  \t" + med_comp + "    \t" + exp_date + "     \t" + med_cost);
     }
-    void delete_medicine()
+    void delete_medicine(int ch,medicine m[])
     {
-        
+        for(int i=ch-1;i<m.length-1;i++){
+             m[i]=m[i+1];
+        }
     }
 }
 
@@ -152,10 +158,6 @@ class hospital_room
 {
     int icu_room=5;
     int gen_room=21;
-    // hospital_room(){
-    //    this.icu_room=5;
-    //    this.gen_room=21;
-    // }
     public void  icu_rooms()
     {
         Scanner input = new Scanner(System.in);
@@ -285,22 +287,26 @@ public class hospitalmanagement
         p[3].sex = "Male";
         p[3].admit_status = "y";
         p[3].age = 25;
-
+        
+        m[0].med_id =1;
         m[0].med_name = "Corex";
         m[0].med_comp = "Cino pvt";
         m[0].exp_date = "9-5-16";
         m[0].med_cost = 55;
         m[0].count = 8;
+        m[1].med_id =2;
         m[1].med_name = "Nytra";
         m[1].med_comp = "Ace pvt";
         m[1].exp_date = "4-4-15";
         m[1].med_cost = 500;
         m[1].count = 5;
+        m[2].med_id =3;
         m[2].med_name = "Brufa";
         m[2].med_comp = "Reckitt";
         m[2].exp_date = "12-7-17";
         m[2].med_cost = 50;
         m[2].count = 56;
+        m[3].med_id =4;
         m[3].med_name = "Pride";
         m[3].med_comp = "DDF pvt";
         m[3].exp_date = "12-4-12";
@@ -351,7 +357,7 @@ public class hospitalmanagement
                                     }
                                 case 3:{
                                     System.out.println("--------------------------------------------------------------------------------");
-                                    System.out.println("Name \t Company \t Expiry Date \t Cost");
+                                    System.out.println("id \t Name \t Company \t Expiry Date \t Cost");
                                     System.out.println("--------------------------------------------------------------------------------");
                                     for (j = 0; j < count3; j++) {
                                         m[j].print_medi();
@@ -434,7 +440,7 @@ public class hospitalmanagement
                         System.out.println("--------------------------------------------------------------------------------");
                         while (s3 == 1)
                         {
-                            System.out.println("1.Add New Entry\n2. Existing Medicines List");
+                            System.out.println("1. Add New Entry\n2. Existing Medicines List\n3. Delete a medicine");
                             c1 = input.nextInt();
                             switch (c1)
                             {
@@ -446,13 +452,27 @@ public class hospitalmanagement
                                 case 2:
                                     {
                                         System.out.println("--------------------------------------------------------------------------------");
-                                        System.out.println("Name \t Company \t Expiry Date \t Cost");
+                                        System.out.println("id \t Name \t Company \t Expiry Date \t Cost");
                                         System.out.println("--------------------------------------------------------------------------------");
                                         for (j = 0; j < count3; j++) {
                                             m[j].print_medi();
                                         }
                                         break;
                                     }
+                                case 3: 
+                                {
+                                    System.out.println("Enter the medicine you want to delete: ");
+                                    System.out.println("--------------------------------------------------------------------------------");
+                                        System.out.println("id \t Name \t Company \t Expiry Date \t Cost");
+                                        System.out.println("--------------------------------------------------------------------------------");
+                                        for (j = 0; j < count3; j++) {
+                                            m[j].print_medi();
+
+                                }
+                                int chm=input.nextInt();
+                                m[count3].delete_medicine(chm,m);
+                                count3--;
+                            }
                             }
                             System.out.println("\nReturn to Back Press 1 and for Main Menu Press 0");
                             s3 = input.nextInt();
