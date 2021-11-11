@@ -101,15 +101,13 @@ class search_doctor {
     public void search(doctor d[]) {
         Scanner input = new Scanner(System.in);
 
-        hospitalmanp_agement hm = new hospitalmanp_agement();
+        hospitalmanagement hm = new hospitalmanagement();
         System.out.println("Enter the doc_spec type you want to search for: ");
         System.out.println("Specilization:-");
         System.out.println("1:Cardiologist");
         System.out.println("2:Audiologist");
         System.out.println("3:Dentist");
         System.out.println("4:ENT");
-        System.out.println("5:Gynaecologist");
-        System.out.println("6:Paediatrician");
         System.out.println("7:Psychiatrist");
         System.out.println("8:Oncologist");
         int ch1 = input.nextInt();
@@ -262,7 +260,7 @@ class hospital_room {
     }
 }
 
-public class hospitalmanp_agement {
+public class hospitalmanagement {
     int count1, count2, count3, count4, count5, count6;
 
     public static void main(String args[]) {
