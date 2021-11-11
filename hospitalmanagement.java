@@ -146,11 +146,9 @@ class patient
         System.out.println(pid + "\t" + pname + " \t" + disease + "     \t" + sex + "      \t" + admit_status + "\t" + age);
     }
 }
-class medicine extends hospitalmanagement
+class medicine
 {
-   public medicine(){
-        medicine[] m = new medicine[100];
-    }
+   
     String med_name, med_comp, exp_date;
     int med_cost, count,med_id;
     void new_medicine()
