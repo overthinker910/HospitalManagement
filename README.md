@@ -25,5 +25,6 @@ doctor timings.
 - Number of ICU rooms available occupied 
 	
 ### Class Diagram 
-![image](https://user-images.githubusercontent.com/79561540/139914942-f63576ed-10e4-4b43-a333-be00fcf3e0e7.png)
+![image](https://user-images.githubusercontent.com/79561540/141610746-8d1f5a9d-a206-4c88-b40e-f437f1be40d4.png)
+
 
